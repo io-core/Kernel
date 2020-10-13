@@ -1,3 +1,7 @@
+(* begin-module-description
+Module Disk interfaces to the SPI flash storage, presenting 1024 byte sectors from two 512-byte sectors
+
+end-module-description *)
 MODULE Disk;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014 / AP 15.5.20 Extended Oberon*)
   IMPORT SYSTEM;
   CONST SectorLength* = 1024;
