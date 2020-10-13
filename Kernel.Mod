@@ -1,3 +1,25 @@
+(* begin-package-description
+## Overview
+The Kernel package abstracts the hardware of the computing platform for the rest of Oberon.
+
+The current Kernel package contains two modules:
+* Kernel - core abstractions
+* Disk - a device driver for SPI flash storage
+
+## Examples
+
+USAGE:
+```
+Kernel.Collect 
+```
+
+## Modules
+end-package-description *)
+
+(*
+Module Kernel provides hardware abstraction for Oberon.
+
+*)
 MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014 / AP 1.9.20 Extended Oberon*)
   IMPORT SYSTEM;
   CONST TrapAdr* = 04H; timer = -64;
