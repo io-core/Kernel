@@ -16,10 +16,10 @@ Kernel.Collect
 ## Modules
 end-package-description *)
 
-(* begin-module-description
+(* begin-module-use-description
 Module Kernel provides hardware abstraction for Oberon.
 
-end-module-description *)
+end-module-use-description *)
 MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014 / AP 1.9.20 Extended Oberon*)
   IMPORT SYSTEM;
   CONST TrapAdr* = 04H; timer = -64;
