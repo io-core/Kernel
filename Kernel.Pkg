@@ -1,7 +1,7 @@
 k,v1,v2
 package,Kernel,v5.0.20140204
 from,github.com/io-core,whenever
-doc,core,handles basic os functionality including device access and garbage collection.
 license,PROJECTOBERON,NW
+doc,core, handles initial kernel load / the heap and GC / the SDcard and sectors / the timer and clock / traps.
 p,Kernel.Mod,
-p,Disk.Mod,
+p,BootLoad.Mod,
