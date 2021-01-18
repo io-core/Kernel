@@ -1,9 +1,6 @@
 # Kernel
 io-core Kernel package containing Kernel.Mod from Project Oberon
 
-This is the package that receves control from the Bootloader and HAL and
-is the root of the common Oberon heirarchy of modules.
-
 Documentation can be found [here](https://github.com/io-core/doc/tree/main/core/Kernel)
 
 ### License of the Project Oberon files
