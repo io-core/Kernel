@@ -1,16 +1,17 @@
+(* begin-module-short-description
+loads the inner core from disk or serial.
+end-module-short-description *)
+
 (* begin-module-use-description
 Module BootLoad is the firmware for the RISC Oberon platform.
 
-    ORP.Compile BootLoad.Mod ~
-    ORF.WriteFile BootLoad.rsc prom.mem ~                      
+``ORP.Compile BootLoad.Mod ~``
+
+``ORF.WriteFile BootLoad.rsc prom.mem ~``
 
 end-module-use-description *)
 (* begin-module-develop-description
-
 (NW 20.10.2013 / PR 4.2.2014; boot from SDHC disk or line)
-
-    ORP.Compile BootLoad.Mod ~
-    ORF.WriteFile BootLoad.rsc prom.mem ~ 
 
 end-module-develop-description *)
 MODULE* BootLoad;  (*NW 20.10.2013 / PR 4.2.2014; boot from SDHC disk or line*)

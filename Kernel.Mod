@@ -1,3 +1,12 @@
+(* begin-documentation-node
+##########
+  Kernel
+##########
+
+Developing the Kernel...
+
+end-documentation-node *)
+
 (* begin-package-description
 ### _Package Overview:_
 The Kernel package manages:
@@ -17,8 +26,13 @@ Kernel.GetSector(secno*29, buf);
 ### _Modules in this package:_
 end-package-description *)
 
+(* begin-module-short-description
+manages memory, block access, system timer, and traps.
+end-module-short-description *)
+
 (* begin-module-use-description
 Module Kernel handles:
+
 * Memory use by the shared Oberon heap including garbage collection
 * Reading and writing to SD Card 512-byte blocks
 * Allocating, Deallocating, Reading and Writing 1024-byte sectors on the SD card
@@ -26,6 +40,12 @@ Module Kernel handles:
 * Setting the trap handler and dispatching traps.
 
 end-module-use-description *)
+
+(* begin-module-develop-description
+(*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
+
+end-module-develop-description *)
+
 MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
   IMPORT SYSTEM;
 
