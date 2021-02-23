@@ -3,5 +3,5 @@ package,Kernel,v5.0.20140204
 from,github.com/io-core,whenever
 license,PROJECTOBERON,NW
 doc,core, handles kernel load / heap and GC / SDcard and sectors / timer and clock / traps.
+r,[core]/Boot,v5.0.0
 p,Kernel.Mod,
-p,BootLoad.Mod,
