@@ -8,22 +8,25 @@ Developing the Kernel...
 end-documentation-node *)
 
 (* begin-package-description
-### _Package Overview:_
+Package Overview
+++++++++++++++++
+
 The Kernel package manages:
+
 * Loading the Oberon inner core from the SDcard or the serial line
 * Heap Management, Disk Access, Timekeeping, and Trap handling
-### _Package Use:_
+
+Package Use
++++++++++++
 
 USAGE:
-```
+
 i:=Kernel.Time();
 
 Kernel.Install(SYSTEM.ADR(Abort), 0);
 
 Kernel.GetSector(secno*29, buf);
-```
 
-### _Modules in this package:_
 end-package-description *)
 
 (* begin-module-short-description
