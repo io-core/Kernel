@@ -54,13 +54,16 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
 
   CONST 
     SectorLength* = 1024;
+(*    WarningSize* = 80; *)
     timer = -64; spiData = -48; spiCtrl = -44;
     CARD0 = 1; SPIFAST = 4;
     FSoffset = 80000H; (*256MB in 512-byte blocks*)
     mapsize = 10000H; (*1K sectors, 64MB*)
+(*    wbsize = 4096; *)
 
   TYPE 
     Sector* = ARRAY SectorLength OF BYTE;
+(*    Warning* = POINTER TO ARRAY WarningSize OF CHAR; *)
 
   VAR 
     allocated*, NofSectors*: INTEGER;
@@ -70,6 +73,30 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     list0, list1, list2, list3: INTEGER;  (*lists of free blocks of size n*256, 128, 64, 32 bytes*)
     data: INTEGER; (*SPI data in*)
     sectorMap: ARRAY mapsize DIV 32 OF SET;
+(*    warnBuffer: ARRAY wbsize OF CHAR; *)
+(*    wbStart, wbEnd: INTEGER;   *)
+
+(*
+  (* begin-section-description
+## ---------- Error Reporting
+  end-section-description *)
+
+  (* begin-procedure-description
+---
+**WARNING** logs a warning or error condition. 
+  end-procedure-description *)
+  PROCEDURE WARNING(w: ARRAY OF CHAR);
+  BEGIN
+  END WARNING;
+
+  (* begin-procedure-description
+---
+**WARN1** logs the first occurance of a warning or error condition.
+  end-procedure-description *)
+  PROCEDURE WARN1(w: ARRAY OF CHAR);
+  BEGIN
+  END WARN1;
+*)
 
   (* begin-section-description
 ## ---------- Heap Allocation
