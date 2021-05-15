@@ -183,6 +183,25 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     END
   END New;
 
+  (* begin-procedure-description
+---
+**Interface** allocates and initializes an interface method table for a referenced record with type-bound procedures. 
+  end-procedure-description *)
+   PROCEDURE Interface*(VAR ptr: LONGINT; tag: LONGINT);
+    (*called by assignment of record to interface via MT[0]; ptr and tag are pointers*)
+    VAR p, size, lim: LONGINT;
+  BEGIN SYSTEM.GET(tag, size);   (* this is all wrong. Need to replace with correct code. *)
+    IF size = 32 THEN GetBlock32(p)
+    ELSIF size = 64 THEN GetBlock64(p)
+    ELSIF size = 128 THEN GetBlock128(p)
+    ELSE GetBlock(p, (size+255) DIV 256 * 256)
+    END ;
+    IF p = 0 THEN ptr := 0
+    ELSE ptr := p+8; SYSTEM.PUT(p, tag); lim := p + size; INC(p, 4); INC(allocated, size);
+      WHILE p < lim DO SYSTEM.PUT(p, 0); INC(p, 4) END
+    END
+  END Interface;
+
   (* begin-section-description
 ## ---------- Garbage Collection
   end-section-description *)
@@ -450,6 +469,7 @@ emits the trap number on the LEDs and goes into an infinite loop.
     VAR u, v, w: INTEGER;
   BEGIN u := SYSTEM.REG(15); SYSTEM.GET(u - 4, v); w := v DIV 10H MOD 10H; (*trap number*)
     IF w = 0 THEN New(a, b)
+    ELSIF w = 8 THEN Interface(a, b)
     ELSE (*stop*) LED(w + 192); REPEAT UNTIL FALSE
     END
   END Trap;
