@@ -1,4 +1,4 @@
-MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
+MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014 / CP 2021*)
   IMPORT SYSTEM;
   CONST SectorLength* = 1024;
     timer = -64; spiData = -48; spiCtrl = -44;
@@ -30,6 +30,8 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
 *)
 
 (* ---------- New: heap allocation ----------*)
+
+(*  comment out until sufficient compiler support
 
   PROCEDURE GetBlock(VAR p: LONGINT; len: LONGINT);
     (*len is multiple of 256*)
@@ -92,7 +94,11 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     END
   END New;
 
+*)
+
 (* ---------- Garbage collector ----------*)
+
+(*  comment out until sufficient compiler support
 
   PROCEDURE Mark*(pref: LONGINT);
     VAR pvadr, offadr, offset, tag, p, q, r: LONGINT;
@@ -143,8 +149,12 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     UNTIL p >= heapLim
   END Scan;
 
+*)
+
 (* ---------- Disk storage management ----------*)
 
+(*  comment out until sufficient compiler support
+  
   PROCEDURE SPIIdle(n: INTEGER); (*send n FFs slowly with no card selected*)
   BEGIN SYSTEM.PUT(spiCtrl, 0);
     WHILE n > 0 DO DEC(n); SYSTEM.PUT(spiData, -1);
@@ -245,7 +255,11 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     WriteSD(dst, SYSTEM.ADR(src)); WriteSD(dst+1, SYSTEM.ADR(src)+512)
   END PutSector;
 
+*)
+
 (*-------- Miscellaneous procedures----------*)
+
+(*  comment out until sufficient compiler support
 
   PROCEDURE Time*(): INTEGER;
     VAR t: INTEGER;
@@ -290,5 +304,7 @@ MODULE Kernel;  (*NW/PR  11.4.86 / 27.12.95 / 4.2.2014*)
     allocated := 0; clock := 0; 
     LED(16); InitSecMap
   END Init;
+
+*)
 
 END Kernel.
